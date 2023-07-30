@@ -1,0 +1,5 @@
+select (id*10 +1) as id, first_name, last_name, age, NULL as birthday, sex 
+from users 
+union
+select (id*10+2) as id, SUBSTRING_INDEX(name, ' ', 1) as first_name, SUBSTRING_INDEX(name, ' ', -1) as last_name,  NULL,birthday, sex 
+from members
